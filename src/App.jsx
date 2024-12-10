@@ -20,7 +20,7 @@ const App = () => {
       try {
         const firstAPIData = await fetchMoviesFromFirstAPI(FIRST_API_URL, FIRST_API_KEY);
         const tmdbData = await fetchMoviesFromTMDB(TMDB_API_URL, TMDB_API_KEY);
-        
+
         setMovies([
           ...firstAPIData.data.map((movie) => ({
             id: movie.id,
