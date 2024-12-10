@@ -1,14 +1,13 @@
-// src/App.jsx
-
 import React, { useEffect, useState } from 'react';
 import './styles/global.css';
-import Card from './Components/Card';
 import { fetchMoviesFromFirstAPI, fetchMoviesFromTMDB } from './api/api';
 
 const FIRST_API_URL = 'https://ecom-back-strapi.onrender.com/api/movies';
-const FIRST_API_KEY = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzNTE4NDIyLCJleHAiOjE3MzYxMTA0MjJ9.v8q1AxJgVkZur8YxzdIA3rDvy5pk0VjixPcDTMofJD8';
+const FIRST_API_KEY =
+  'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMzNTE4NDIyLCJleHAiOjE3MzYxMTA0MjJ9.v8q1AxJgVkZur8YxzdIA3rDvy5pk0VjixPcDTMofJD8';
 const TMDB_API_URL = 'https://api.themoviedb.org/3/movie/500';
-const TMDB_API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDM1ZDA1YmE5ZmJjZDBiMTlhYmRiOTYzYjBiZmY1OCIsIm5iZiI6MTczMzM1MTM5OS40MjgsInN1YiI6IjY3NTBkN2U3OWVjODE2NzYyOWQ2YTJiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vFGDtjhmoKMzBaUUcH8g0SEMkZCl19hyNakpQQvKeYE';
+const TMDB_API_KEY =
+  'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDM1ZDA1YmE5ZmJjZDBiMTlhYmRiOTYzYjBiZmY1OCIsIm5iZiI6MTczMzM1MTM5OS40MjgsInN1YiI6IjY3NTBkN2U3OWVjODE2NzYyOWQ2YTJiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vFGDtjhmoKMzBaUUcH8g0SEMkZCl19hyNakpQQvKeYE';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -58,13 +57,29 @@ const App = () => {
           <p>{featuredMovie.overview}</p>
         </div>
       )}
+
       <section>
         <h2>Filmes</h2>
         <div className="movies-grid">
-          {movies.length === 0 ? (
-            <p>Carregando filmes...</p>
+          {movies.length > 0 ? (
+            movies.map((movie) => (
+              <div key={movie.id} className="movie-card">
+                <img
+                  src={
+                    movie.poster_path.startsWith('http')
+                      ? movie.poster_path
+                      : `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                  }
+                  alt={`${movie.title} Poster`}
+                  className="movie-poster"
+                  aria-label={`Poster do filme ${movie.title}`}
+                />
+                <h3>{movie.title}</h3>
+                <p>{movie.overview}</p>
+              </div>
+            ))
           ) : (
-            movies.map((movie) => <Card key={movie.id} movie={movie} />)
+            <p>Nenhum filme disponível.</p>
           )}
         </div>
       </section>

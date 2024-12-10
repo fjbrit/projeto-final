@@ -1,21 +1,25 @@
-/* src/styles/card.css */
-
 .movie-card {
-    background: #333;
-    border-radius: 10px;
-    padding: 15px;
+    width: 150px; /* Largura padrão da Netflix */
+    margin: 10px;
     text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s;
-  }
-  
-  .movie-card:hover {
-    transform: scale(1.05);
-  }
-  
-  .movie-poster {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
+    display: inline-block; /* Para organizar os cards lado a lado */
+}
+
+.movie-poster {
+    width: 100%; /* Ocupa toda a largura do card */
+    height: auto; /* Mantém a proporção */
+    border-radius: 8px; /* Bordas arredondadas para um visual mais agradável */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o card */
+    transition: transform 0.2s; /* Efeito de zoom ao passar o mouse */
+}
+
+.movie-poster:hover {
+    transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
+}
+
+.movies-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cards se reorganizem em múltiplas linhas */
+    justify-content: space-evenly; /* Espaçamento uniforme entre os cards */
+    padding: 20px;
+}
