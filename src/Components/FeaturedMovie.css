@@ -1,0 +1,48 @@
+.featured-movie {
+    position: relative;
+    height: 90vh; /* Altura proporcional à tela */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    color: #f8f8f8;
+  }
+  
+  .featured-content {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente para texto */
+    width: 100%;
+  }
+  
+  .featured-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+  }
+  
+  .featured-overview {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .featured-rating {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f39c12; /* Cor dourada */
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .featured-title {
+      font-size: 2rem;
+    }
+    .featured-overview {
+      font-size: 1rem;
+    }
+    .featured-rating {
+      font-size: 1.2rem;
+    }
+  }
+  

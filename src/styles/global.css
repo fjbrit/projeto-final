@@ -1,80 +1,74 @@
+/* global.css */
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(251, 250, 250, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
-  margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #141414;
+  background-color: #121212;
   color: #fff;
-}
-
-h1, h2, h3, p {
   margin: 0;
-  padding: 0.5rem 0;
-}
-
-/* Estilo global da aplicação */
-.App {
-  text-align: Left;
-}
-
-header {
-  background-color: #e50914;
-  padding: 1rem 0;
-}
-
-header h1 {
-  color: #fff;
-  font-size: 2rem;
-  margin: 0;
-}
-
-/* Filmes em destaque */
-.featured-movie {
-  margin: 2rem auto;
-  padding: 1rem;
-  border: 1px solid #444;
-  max-width: 800px;
-  background-color: #222;
-}
-
-.featured-movie h2 {
-  color: #e50914;
-}
-
-/* Grid de filmes */
-.movies-grid {
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-  padding: 2rem;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-/* Cartão de filme */
-.movie-card {
-  background-color: #222;
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #898ff8;
+}
+
+button {
   border-radius: 8px;
-  overflow: hidden;
-  width: 200px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #0c0c0c;
+  cursor: pointer;
+  transition: border-color 0.25s;
 }
 
-.movie-card:hover {
-  transform: scale(1.05);
+button:hover {
+  border-color: #7c82f7;
 }
 
-.movie-poster {
-  width: 100%;
-  height: auto;
-  display: block;
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.movie-card h3 {
-  font-size: 1.1rem;
-  margin: 0.5rem;
+/* Outros estilos globais */
+h1, h2, h3 {
+  margin: 1;
+  font-size: 2.5em;
 }
 
-.movie-card p {
-  font-size: 0.9rem;
-  color: #aaa;
-  padding: 0 0.5rem 0.5rem;
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #f8f8f8;
+  }
+  a:hover {
+    color: #747bff;
+  }
+
 }
