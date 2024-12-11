@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  font-family: Roboto, sans-serif ; 
+  line-height: 0px 0px 0px 1px;
+  font-weight: 400px;
 
   color-scheme: light dark;
   color: rgba(251, 250, 250, 0.87);
@@ -31,7 +31,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: rgb(50, 47, 47);
-  font-family: "Roboto", sans-serif;
+  font-family: Roboto, sans-serif;
 }
 
 h1 {

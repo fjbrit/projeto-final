@@ -9,7 +9,7 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-}
+  }
 
 .logo {
   height: 6em;
@@ -40,7 +40,7 @@
 }
 
 .card {
-  padding: 1em;
+  padding: 0em;
 }
 
 .read-the-docs {
@@ -50,9 +50,9 @@
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
-  gap: 45px;
+  gap: 20px;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .movie-card {
@@ -64,4 +64,5 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
+  
 }

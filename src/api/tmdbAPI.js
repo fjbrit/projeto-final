@@ -1,6 +1,6 @@
 // tmdbAPI.js
 export const fetchMoviesFromTMDB = async (movieId) => {
-    const TMDB_API_URL = `https://api.themoviedb.org/3/movie/${500}?language=pt-BR`;
+    const TMDB_API_URL = `https://api.themoviedb.org/3/movie/${movieId}?language=pt-BR`;
     const TMDB_API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDM1ZDA1YmE5ZmJjZDBiMTlhYmRiOTYzYjBiZmY1OCIsIm5iZiI6MTczMzM1MTM5OS40MjgsInN1YiI6IjY3NTBkN2U3OWVjODE2NzYyOWQ2YTJiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vFGDtjhmoKMzBaUUcH8g0SEMkZCl19hyNakpQQvKeYE';
   
     try {
@@ -17,6 +17,11 @@ export const fetchMoviesFromTMDB = async (movieId) => {
       }
   
       const data = await response.json();
+
+      if (data.poster_path) {
+        data.poster_path = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
+      }
+
       return data;
     } catch (error) {
       console.error('Erro ao buscar dados do TMDB:', error.message);

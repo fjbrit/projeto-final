@@ -13,7 +13,7 @@ const TMDB_API_KEY = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDM1ZDA1YmE5ZmJjZD
 
 const App = () => {
   const [movies, setMovies] = useState([]);
-  const [featuredMovie, setFeaturedMovie] = useState(null);
+  const [featuredMovie, setFeaturedMovie] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
