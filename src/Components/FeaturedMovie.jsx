@@ -1,23 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './FeaturedMovie.css';
 
 const FeaturedMovie = ({ movie }) => {
-  if (!movie) return null;
+    const [imageUrl, setImageUrl] = useState(null);
 
-  return (
-    <div
-      className="featured-movie"
-      style={{
-        backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.3)), url(${movie.poster_path})`,
-      }}
-    >
-      <div className="featured-content">
-        <h1 className="featured-title">{movie.title}</h1>
-        <p className="featured-overview">{movie.overview}</p>
-        <span className="featured-rating">⭐ {movie.vote_average.toFixed(1)}</span>
-      </div>
-    </div>
-  );
+    useEffect(() => {
+        const fetchConfig = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/configuration?api_key=4d35d05ba9fbcd0b19abdb963b0bff58`);
+                if (!response.ok) {
+                    throw new Error(`Erro ao obter configuração: ${response.status}`);
+                }
+                const config = await response.json();
+                if (movie.backdrop_path) { 
+                    setImageUrl(`${config.images.secure_base_url}original${movie.backdrop_path}`);
+                    console.log(`URL da imagem: ${imageUrl}`); // Verifique a URL no console
+                } else {
+                    console.warn("Filme sem backdrop_path:", movie);
+                }
+            } catch (error) {
+                console.error('Erro ao obter configuração da API:', error);
+            }
+        };
+
+        if (movie) {
+            fetchConfig();
+        }
+
+    }, [movie]);
+
+    return (
+        <section className="featured-movie" style={{ backgroundImage: `url(${imageUrl})` }}> 
+            {/* Resto do seu código */}
+            {/* Adicionamos uma imagem placeholder caso a URL da imagem não esteja disponível */}
+        </section>
+    );
 };
 
 export default FeaturedMovie;

@@ -1,0 +1,8 @@
+.movie-grid {
+    display: flex;
+    flex-wrap: wrap; /* Ajusta para múltiplas linhas */
+    gap: 15px; /* Espaçamento entre os elementos */
+    justify-content: space-between; /* Espaçamento uniforme */
+    padding: 20px;
+  }
+  

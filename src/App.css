@@ -1,68 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-* {
-  box-sizing: border-box;
+.page {
+  background-color: #111; /* Cor de fundo escura */
+  min-height: 100vh; /* Garante que a página ocupe a altura total da tela */
+  color: rgb(216, 216, 216);
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-  }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 0em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.movies-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(178px, 1fr));
-  gap: 20px;
+.loading {
+  position: fixed; /* Fixa o loading na tela */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99; /* Garante que o loading fique por cima de outros elementos */
+  background-color: #000;
+  display: flex;
   justify-content: center;
-  margin-top: 10px;
+  align-items: center;
 }
 
-.movie-card {
-  width: 200px;
-  text-align: center;
+.loading img {
+  width: 150px; /* Ajuste o tamanho conforme necessário */
 }
 
-.movie-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  
+.page {
+  background-color: #111; /* Cor de fundo escura */
+  min-height: 100vh; /* Garante que a página ocupe a altura total da tela */
+  color: white;
+}
+
+.loading {
+  position: fixed; /* Fixa o loading na tela */
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99; /* Garante que o loading fique por cima de outros elementos */
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading img {
+  width: 150px; /* Ajuste o tamanho conforme necessário */
 }
