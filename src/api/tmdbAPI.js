@@ -1,5 +1,5 @@
 // tmdbAPI.js
-const TMDB_API_KEY = "4d35d05ba9fbcd0b19abdb963b0bff58"; // SUA CHAVE DA API
+const TMDB_API_KEY = "4d35d05ba9fbcd0b19abdb963b0bff58"; // CHAVE DA API
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
 //Função para pegar as configurações da API, incluindo o base url das imagens
