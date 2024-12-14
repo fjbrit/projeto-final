@@ -1,7 +1,7 @@
 .card {
   position: relative;
-  width: 200px; /* Tamanho padrão para os cards */
-  height: 300px; /* Mantém a proporção 2:3 */
+  width: 200px; /* Tamanho para os cards */
+  height: 300px; /* Mantém a proporção */
   margin: 10px;
   overflow: hidden;
   border-radius: 8px;

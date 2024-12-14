@@ -1,40 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './FeaturedMovie.css';
 
 const FeaturedMovie = ({ movie }) => {
-    const [imageUrl, setImageUrl] = useState(null);
+  if (!movie || !movie.backdrop_path) {
+    return <div className="featured-movie no-poster">Imagem não disponível</div>;
+  }
 
-    useEffect(() => {
-        const fetchConfig = async () => {
-            try {
-                const response = await fetch(`https://api.themoviedb.org/3/configuration?api_key=4d35d05ba9fbcd0b19abdb963b0bff58`);
-                if (!response.ok) {
-                    throw new Error(`Erro ao obter configuração: ${response.status}`);
-                }
-                const config = await response.json();
-                if (movie.backdrop_path) { 
-                    setImageUrl(`${config.images.secure_base_url}original${movie.backdrop_path}`);
-                    console.log(`URL da imagem: ${imageUrl}`); // Verifique a URL no console
-                } else {
-                    console.warn("Filme sem backdrop_path:", movie);
-                }
-            } catch (error) {
-                console.error('Erro ao obter configuração da API:', error);
-            }
-        };
+  const backgroundImage = `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})`;
 
-        if (movie) {
-            fetchConfig();
-        }
-
-    }, [movie]);
-
-    return (
-        <section className="featured-movie" style={{ backgroundImage: `url(${imageUrl})` }}> 
-            {/* Resto do seu código */}
-            {/* Adicionamos uma imagem placeholder caso a URL da imagem não esteja disponível */}
-        </section>
-    );
+  return (
+    <section className="featured-movie" style={{ backgroundImage }}>
+      <div className="featured-movie__overlay"> {/* Div para o degradê */}
+        <div className="featured-movie-info">
+          <h2 className="featured-movie-title">{movie.title}</h2>
+          {movie.genres && (
+            <div className="featured-movie-details">
+              {movie.genres.map(genre => (
+                <div className="detail" key={genre.id}>
+                  {genre.name}
+                </div>
+              ))}
+            </div>
+          )}
+          <p className="featured-movie-overview">{movie.overview}</p>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default FeaturedMovie;

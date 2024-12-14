@@ -21,7 +21,7 @@ const MovieGrid = () => {
         setMovies(data.data);
       } catch (err) {
         console.error(err);
-        setError('Erro ao carregar filmes. Tente novamente mais tarde.'); 
+        setError('Erro ao carregar filmes. Tente novamente mais tarde.');
       }
     };
 
@@ -30,9 +30,9 @@ const MovieGrid = () => {
 
   return (
     <div className="movie-grid">
-      {error && <p className="error-message">{error}</p>} 
+      {error && <p className="error-message">{error}</p>}
       {movies.length > 0 ? (
-        <> 
+        <>
           {movies.map((movie) => (
             <div key={movie.id} className="movie-card">
               <div className="movie-image-container">
