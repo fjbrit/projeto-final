@@ -56,9 +56,9 @@ button:focus-visible {
 /* Outros estilos globais */
 h1, h2, h3 {
   margin: 1;
-  font-size: 2.5em;
-
+  font-size: 1 em;
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
